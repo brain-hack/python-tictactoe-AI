@@ -7,8 +7,6 @@ app = Flask(__name__)
 x = 1
 o = 3
 
-lotto_numbers = list(range(1,46))
-
 @app.route("/")
 def hello():
 
@@ -29,6 +27,7 @@ def computer_hard(positions, moves):
 
     if moves == 0:
         res["choose"] = 4
+
         return res
 
     if moves == 2:
@@ -59,7 +58,8 @@ def computer_hard(positions, moves):
                 else:
                     res["choose"] = 7
             else:
-                res["choose"] = 0
+                res["choose"] = 0 # 승
+
         elif positions[6] == x:
             if positions[2] == o:
                 if positions[8] == o:
@@ -67,8 +67,8 @@ def computer_hard(positions, moves):
                 else:
                     res["choose"] = 3
             else:
-                res["choose"] = 2
-        # positions[0] == x
+                res["choose"] = 2 # 승
+
         else:
             if positions[8] == o:
                 if positions[6] == o:
@@ -76,7 +76,8 @@ def computer_hard(positions, moves):
                 else:
                     res["choose"] = 1
             else:
-                res["choose"] = 8
+                res["choose"] = 8 # 승
+
         return res
 
     if moves == 6:
@@ -133,32 +134,24 @@ def computer_hard(positions, moves):
             if positions[1] == o:
                 res["choose"] = 8 # 무승부
             else:
-                res["choose"] = 1
+                res["choose"] = 1 # 승
         elif positions[8] == x:
             if positions[5] == o:
                 res["choose"] = 6 # 무승부
             else:
-                res["choose"] = 5
+                res["choose"] = 5 # 승
         elif positions[6] == x:
             if positions[7] == o:
                 res["choose"] = 0 # 무승부
             else:
-                res["choose"] = 7
+                res["choose"] = 7 # 승
         else:
             if positions[3] == o:
                 res["choose"] = 2 # 무승부
             else:
-                res["choose"] = 3
-        #x = 1
-        #o = 3
+                res["choose"] = 3 # 승
 
-        #0 1 2
-        #3 4 5
-        #6 7 8
         return res
-
-
-
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8080)
