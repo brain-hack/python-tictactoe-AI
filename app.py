@@ -2,6 +2,8 @@ from flask import Flask, render_template, jsonify, request
 import random
 import json
 
+#2020.11.25 python-tictactoe-AI
+
 app = Flask(__name__)
 
 x = 1
@@ -59,7 +61,7 @@ def computer_hard(positions, moves):
                 else:
                     res["choose"] = 7
             else:
-                res["choose"] = 0
+                res["choose"] = 0 # 승
         elif positions[6] == x:
             if positions[2] == o:
                 if positions[8] == o:
@@ -67,7 +69,8 @@ def computer_hard(positions, moves):
                 else:
                     res["choose"] = 3
             else:
-                res["choose"] = 2
+                res["choose"] = 2 # 승
+
         # positions[0] == x
         else:
             if positions[8] == o:
@@ -76,7 +79,8 @@ def computer_hard(positions, moves):
                 else:
                     res["choose"] = 1
             else:
-                res["choose"] = 8
+                res["choose"] = 8 # 승
+
         return res
 
     if moves == 6:
@@ -133,22 +137,26 @@ def computer_hard(positions, moves):
             if positions[1] == o:
                 res["choose"] = 8 # 무승부
             else:
-                res["choose"] = 1
+                res["choose"] = 1 # 승
+
         elif positions[8] == x:
             if positions[5] == o:
                 res["choose"] = 6 # 무승부
             else:
-                res["choose"] = 5
+                res["choose"] = 5 # 승
+
         elif positions[6] == x:
             if positions[7] == o:
                 res["choose"] = 0 # 무승부
             else:
-                res["choose"] = 7
+                res["choose"] = 7 # 승
+
         else:
             if positions[3] == o:
                 res["choose"] = 2 # 무승부
             else:
-                res["choose"] = 3
+                res["choose"] = 3 # 승
+
         #x = 1
         #o = 3
 
