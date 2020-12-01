@@ -2,6 +2,8 @@ from flask import Flask, render_template, jsonify, request
 import random
 import json
 
+#tic_tac_toe_pork_pull_request
+
 app = Flask(__name__)
 
 x = 1
@@ -59,7 +61,8 @@ def computer_hard(positions, moves):
                 else:
                     res["choose"] = 7
             else:
-                res["choose"] = 0
+                res["choose"] = 0 #승
+
         elif positions[6] == x:
             if positions[2] == o:
                 if positions[8] == o:
@@ -67,7 +70,8 @@ def computer_hard(positions, moves):
                 else:
                     res["choose"] = 3
             else:
-                res["choose"] = 2
+                res["choose"] = 2 #승
+
         # positions[0] == x
         else:
             if positions[8] == o:
